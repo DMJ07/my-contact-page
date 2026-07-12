@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            font-size: 42px;
+            color: white;
+        }
+
+        .name {
+            font-size: 26px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .bio {
+            font-size: 15px;
+            color: #718096;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 0 auto 25px;
+            width: 60px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #f7fafc;
+            padding: 16px 20px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #2d3748;
+            transition: all 0.2s ease;
+            border: 1.5px solid transparent;
+        }
+
+        .contact-item:hover {
+            background: #edf2f7;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            width: 36px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .contact-text {
+            text-align: left;
+        }
+
+        .contact-label {
+            font-size: 13px;
+            color: #a0aec0;
+            margin-bottom: 2px;
+        }
+
+        .contact-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .qr-section {
+            margin-top: 10px;
+        }
+
+        .qr-hint {
+            font-size: 14px;
+            color: #718096;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            background: #fffbeb;
+            border: 1px solid #fbd38d;
+            border-radius: 10px;
+            padding: 12px 16px;
+            line-height: 1.6;
+        }
+
+        .qr-hint .emoji {
+            font-size: 18px;
+            margin-right: 4px;
+        }
+
+        .copy-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.97);
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2d3748;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- 头像区域（可替换成图片） -->
+        <div class="avatar">👤</div>
+
+        <!-- 姓名和简介（请替换成你自己的） -->
+        <h1 class="name">你好，我是任佳泽</h1>
+        <p class="bio">产品经理 / 独立开发者<br>欢迎与我交流合作</p>
+
+        <hr class="divider">
+
+        <!-- 联系方式列表 -->
+        <div class="contact-methods">
+            <!-- 邮箱 -->
+            <a href="mailto:yourname@example.com" class="contact-item">
+                <span class="contact-icon">📧</span>
+                <div class="contact-text">
+                    <div class="contact-label">微信号</div>
+                    <div class="contact-value">R2000911</div>
+                </div>
+            </a>
+
+            <!-- 公众号 -->
+            <a href="#" class="contact-item" onclick="alert('请打开微信搜索「你的公众号名称」关注我')">
+                <span class="contact-icon">💬</span>
+                <div class="contact-text">
+                    <div class="contact-label">微信公众号</div>
+                    <div class="contact-value">点击查看公众号名称</div>
+                </div>
+            </a>
+
+            <!-- GitHub（可选） -->
+            <a href="https://github.com" target="_blank" class="contact-item">
+                <span class="contact-icon">🐙</span>
+                <div class="contact-text">
+                    <div class="contact-label">联系电话</div>
+                    <div class="contact-value">19956212953</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- 微信引导区域（不含微信号） -->
+        <div class="qr-hint">
+            <span class="emoji">💡</span> 如需添加微信，请通过以上方式联系我，我会私信发送二维码或微信号。
+        </div>
+
+        <!-- 可选：复制邮箱按钮 -->
+        <button class="copy-btn" onclick="copyEmail()">📋 复制微信号</button>
+    </div>
+
+    <!-- 提示消息 -->
+    <div class="toast" id="toast">已复制到剪贴板</div>
+
+    <script>
+        function copyEmail() {
+            const email = "R2000911"; // 替换成你的真实邮箱
+            navigator.clipboard.writeText(email).then(() => {
+                showToast("✅ 微信号已复制");
+            }).catch(() => {
+                showToast("❌ 复制失败，请手动复制");
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>
